@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Field
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Obstacle
+  - Water
+  - UI
+  - Agent
+  - CameraConfiner
+  - Interactable
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 3884478591
+    locked: 0
+  - name: Forceground
+    uniqueID: 2934830573
+    locked: 0
+  - name: Selection
+    uniqueID: 1245021623
+    locked: 0
+  - name: Agent
+    uniqueID: 1088028441
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
