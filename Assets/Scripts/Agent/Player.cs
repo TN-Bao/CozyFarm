@@ -1,7 +1,10 @@
+using System;
+using CozyFarm.DataStorage;
 using CozyFarm.Farming;
 using CozyFarm.Input;
 using CozyFarm.Interaction;
 using CozyFarm.Tools;
+using CozyFarm.UI;
 using UnityEngine;
 
 namespace CozyFarm.Agent
@@ -12,11 +15,11 @@ namespace CozyFarm.Agent
         [SerializeField] private PlayerInputFarm _playerInput;
         [SerializeField] private AgentAnimation _agentAnim;
         [SerializeField] private InteractionDetector _interactionDetector;
-        [SerializeField] private RuntimeAnimatorController _hoeAnimController;
+        [SerializeField] private ItemDatabaseSO _itemDatabase;
         [SerializeField] private FieldController _fieldController;
+        [SerializeField] private ToolSelectionUI _toolSelectionUI;
+        [field: SerializeField] public ToolsBag ToolsBag { get; private set; }
 
-        // private Tool _selectedTool = new HandTool(ToolTypes.Hand);
-        private Tool _selectedTool = new HoeTool(ToolTypes.Hoe);
 
         private bool _blocked;
         public bool Blocked
@@ -41,11 +44,11 @@ namespace CozyFarm.Agent
         public PlayerInputFarm PlayerInput { get => _playerInput; }
         public AgentAnimation AgentAnim { get => _agentAnim; }
         public InteractionDetector InteractionDetector { get => _interactionDetector; }
-        public Tool SelectedTool { get => _selectedTool; }
         public FieldController FieldController => _fieldController;
 
+
         private void Start() {
-            _selectedTool.Equip(this);
+            ToolsBag.Initialize(this);
         }
 
         void OnEnable()
@@ -59,6 +62,9 @@ namespace CozyFarm.Agent
 
             _agentMover.OnMove += _agentAnim.PlayMovementAnimation;
             _playerInput.OnPerformAction += PerformAction;
+            _playerInput.OnSwapTool += SwapTool;
+
+            ToolsBag.OnToolsBagUpdated += _toolSelectionUI.UpdateUI;
         }
 
         void OnDisable()
@@ -72,13 +78,20 @@ namespace CozyFarm.Agent
 
             _agentMover.OnMove -= _agentAnim.PlayMovementAnimation;
             _playerInput.OnPerformAction -= PerformAction;
+            _playerInput.OnSwapTool -= SwapTool;
+
+            ToolsBag.OnToolsBagUpdated -= _toolSelectionUI.UpdateUI;
+        }
+
+        private void SwapTool()
+        {
+            ToolsBag.SelectedNextTool(this);
         }
 
         private void PerformAction()
         {
             Debug.Log("Interacting");
-            _selectedTool.ToolAnimator = _hoeAnimController;
-            _selectedTool.UseTool(this);
+            ToolsBag.CurrentTool.UseTool(this);
         }
     }
 }

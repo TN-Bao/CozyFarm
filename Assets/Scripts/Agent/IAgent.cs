@@ -13,7 +13,7 @@ namespace CozyFarm.Agent
         PlayerInputFarm PlayerInput { get; }
         AgentAnimation AgentAnim { get; }
         InteractionDetector InteractionDetector { get; }
-        Tool SelectedTool { get; }
+        ToolsBag ToolsBag { get; }
         FieldController FieldController { get; }
     }
 }

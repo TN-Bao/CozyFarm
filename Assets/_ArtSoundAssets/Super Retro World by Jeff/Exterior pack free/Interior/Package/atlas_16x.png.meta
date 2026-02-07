@@ -3,7 +3,7 @@ guid: d07fec75eec99ae41a8e16eb04127aea
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -25,7 +25,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -65,6 +65,7 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -76,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -88,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -100,6 +103,46 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1019,50 +1062,50 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      atlas_16x_10: -816159911
-      atlas_16x_25: -579107253
-      atlas_16x_39: -2086636555
-      atlas_16x_7: -296475219
-      atlas_16x_41: -913856264
-      atlas_16x_2: -1277469044
-      atlas_16x_8: 188665402
-      atlas_16x_19: -1825909000
-      atlas_16x_29: 979769528
-      atlas_16x_34: -1217043097
-      atlas_16x_6: 498009368
-      atlas_16x_16: -1198136362
-      atlas_16x_15: 1436247313
-      atlas_16x_9: 1661086373
-      atlas_16x_1: 449045020
-      atlas_16x_3: 873071875
-      atlas_16x_35: -2095340858
-      atlas_16x_14: 444386979
-      atlas_16x_38: 1238758787
-      atlas_16x_27: -798503808
       atlas_16x_0: -1842463826
-      atlas_16x_36: 1022177393
+      atlas_16x_1: 449045020
+      atlas_16x_10: -816159911
+      atlas_16x_11: -1512640553
       atlas_16x_12: 670630436
       atlas_16x_13: 141133775
-      atlas_16x_28: -1259727226
-      atlas_16x_4: -1242607129
+      atlas_16x_14: 444386979
+      atlas_16x_15: 1436247313
+      atlas_16x_16: -1198136362
+      atlas_16x_17: 1428851767
+      atlas_16x_18: -299939572
+      atlas_16x_19: -1825909000
+      atlas_16x_2: -1277469044
+      atlas_16x_20: 1124381815
+      atlas_16x_21: 905796584
+      atlas_16x_22: 1186485656
       atlas_16x_23: 49949946
       atlas_16x_24: 729694626
+      atlas_16x_25: -579107253
       atlas_16x_26: -1265396261
-      atlas_16x_42: -1556190946
-      atlas_16x_11: -1512640553
-      atlas_16x_31: 1845606175
-      atlas_16x_22: 1186485656
-      atlas_16x_18: -299939572
-      atlas_16x_21: 905796584
-      atlas_16x_5: 1990545232
-      atlas_16x_32: -1440614857
-      atlas_16x_17: 1428851767
-      atlas_16x_20: 1124381815
+      atlas_16x_27: -798503808
+      atlas_16x_28: -1259727226
+      atlas_16x_29: 979769528
+      atlas_16x_3: 873071875
       atlas_16x_30: -844537763
-      atlas_16x_40: 1695102917
-      atlas_16x_37: -854196644
+      atlas_16x_31: 1845606175
+      atlas_16x_32: -1440614857
       atlas_16x_33: -1164733608
-  spritePackingTag: 
+      atlas_16x_34: -1217043097
+      atlas_16x_35: -2095340858
+      atlas_16x_36: 1022177393
+      atlas_16x_37: -854196644
+      atlas_16x_38: 1238758787
+      atlas_16x_39: -2086636555
+      atlas_16x_4: -1242607129
+      atlas_16x_40: 1695102917
+      atlas_16x_41: -913856264
+      atlas_16x_42: -1556190946
+      atlas_16x_5: 1990545232
+      atlas_16x_6: 498009368
+      atlas_16x_7: -296475219
+      atlas_16x_8: 188665402
+      atlas_16x_9: 1661086373
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
   assetBundleName: 

@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec5944f2bc309344b7b01b067178d02, type: 3}
+  m_Name: ItemDatabase
+  m_EditorClassIdentifier: 
+  _cropDatabase: {fileID: 11400000, guid: 749f715c5713a4741b465b7953bdbf04, type: 2}
+  _gameItems:
+  - Name: Stone
+    ID: 0
+    Image: {fileID: 1001558109, guid: d99c0fb10577989408ef7add914423fc, type: 3}
+    Description: A piece of rock
+    CanBeStacked: 1
+    StackQuantity: 9
+    CanThrowAway: 1
+    Consumable: 0
+    EnergyBoost: 0
+    Price: 1
+    ToolType: 0
+    ToolRange: {x: 0, y: 0}
+    ToolAnimator: {fileID: 0}
+    CropTypeIndex: -1
+    Prefab: {fileID: 3568860355501706161, guid: 32fcac0ef27ec884bb1c124326878a53, type: 3}
+  - Name: WoodLog
+    ID: 1
+    Image: {fileID: 282831475, guid: d99c0fb10577989408ef7add914423fc, type: 3}
+    Description: A piece of wood
+    CanBeStacked: 1
+    StackQuantity: 9
+    CanThrowAway: 1
+    Consumable: 0
+    EnergyBoost: 0
+    Price: 1
+    ToolType: 0
+    ToolRange: {x: 0, y: 0}
+    ToolAnimator: {fileID: 0}
+    CropTypeIndex: -1
+    Prefab: {fileID: 3120085707838869645, guid: e2ab473442ebc424b9637bce9f704760, type: 3}
+  - Name: Weed
+    ID: 2
+    Image: {fileID: -1657548846, guid: d99c0fb10577989408ef7add914423fc, type: 3}
+    Description: Can be sold for profit or consumed
+    CanBeStacked: 1
+    StackQuantity: 9
+    CanThrowAway: 0
+    Consumable: 1
+    EnergyBoost: 1
+    Price: 1
+    ToolType: 0
+    ToolRange: {x: 0, y: 0}
+    ToolAnimator: {fileID: 0}
+    CropTypeIndex: -1
+    Prefab: {fileID: 6027756521561400818, guid: 266af65e97e6cfc47ae69d0dbd262ff4, type: 3}
+  - Name: Hoe
+    ID: 3
+    Image: {fileID: 943714571, guid: 0c8a50d9f1205f54c95c4fc0499a64bf, type: 3}
+    Description: Prepares the fields
+    CanBeStacked: 0
+    StackQuantity: 1
+    CanThrowAway: 0
+    Consumable: 0
+    EnergyBoost: 0
+    Price: 1
+    ToolType: 2
+    ToolRange: {x: 0, y: 0}
+    ToolAnimator: {fileID: 22100000, guid: db16434a97e710448a5d780cfbf12268, type: 2}
+    CropTypeIndex: -1
+    Prefab: {fileID: 0}
+  - Name: Hand
+    ID: 4
+    Image: {fileID: -120231290, guid: 0c8a50d9f1205f54c95c4fc0499a64bf, type: 3}
+    Description: 
+    CanBeStacked: 0
+    StackQuantity: 1
+    CanThrowAway: 0
+    Consumable: 0
+    EnergyBoost: 0
+    Price: 0
+    ToolType: 1
+    ToolRange: {x: 0, y: 0}
+    ToolAnimator: {fileID: 0}
+    CropTypeIndex: -1
+    Prefab: {fileID: 0}

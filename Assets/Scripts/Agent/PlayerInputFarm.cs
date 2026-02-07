@@ -11,14 +11,15 @@ namespace CozyFarm.Input
         [field : SerializeField] public Vector2 InputValue { get; set; }
 
         public UnityEvent<Vector2> OnMoveInput;
-        public event Action OnPerformAction;
+        public event Action OnPerformAction, OnSwapTool;
 
-        private InputAction _move, _interact;
+        private InputAction _move, _interact, _swapTool;
 
         void Awake()
         {
             _move = _input.actions["Player/Movement"];
             _interact = _input.actions["Player/Interact"];
+            _swapTool = _input.actions["Player/SwapTool"];
         }
 
         void OnEnable()
@@ -27,6 +28,7 @@ namespace CozyFarm.Input
             _move.canceled += Move;
 
             _interact.performed += Interact;
+            _swapTool.performed += SwapTool;
         }
 
         void OnDisable()
@@ -35,6 +37,12 @@ namespace CozyFarm.Input
             _move.canceled -= Move;
 
             _interact.performed -= Interact;
+            _swapTool.performed -= SwapTool;
+        }
+
+        private void SwapTool(InputAction.CallbackContext context)
+        {
+            OnSwapTool?.Invoke();
         }
 
         public void BlockInput(bool val)
