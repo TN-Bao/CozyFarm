@@ -8,14 +8,19 @@ namespace CozyFarm.Tools
 {
     public class HandTool : Tool
     {
-        public HandTool(ToolTypes toolType) : base(toolType)
+        public HandTool(int itemID, string data) : base(itemID, data)
         {
-            
+            this.ToolType = ToolTypes.Hand;
         }
 
         public override void Equip(IAgent agent)
         {
             agent.FieldDetectorObject.StartChecking(ToolRange);
+        }
+
+        public override bool IsToolStillValid()
+        {
+            return true;
         }
 
         public override void PutAway(IAgent agent)
@@ -62,6 +67,7 @@ namespace CozyFarm.Tools
     {
         None,
         Hand,
-        Hoe
+        Hoe,
+        SeedPlacer
     }
 }

@@ -117,15 +117,30 @@ namespace CozyFarm.Farming
             }
         }
 
+        //0X0 -> 1 tile in front
+        //1x1 -> 3x3 area
+        //2x2 -> 5x5 area
         public List<Vector2> DetecValidTiles(Vector2Int detectionRange)
         {
             if (_fieldPosValidator == null)
                 return new List<Vector2>();
-            
-            if (detectionRange.magnitude > 2)
-                throw new NotImplementedException("Detection range greater than (1,1) NOT implemented");
 
-            return _fieldPosValidator.GetValidFieldTiles(new List<Vector2>() { PositionInFront });
+            int halfX = detectionRange.x;
+            int halfY = detectionRange.y;
+            int xMax = halfX * 2 + 1;
+            int yMax = halfY * 2 + 1;
+
+            List<Vector2> tilesToCheck = new();
+            Vector2 positionInFrontCached = PositionInFront;
+            for (int x = 0; x < xMax; x++)
+            {
+                for (int y = 0; y < yMax; y++)
+                {
+                    tilesToCheck.Add(positionInFrontCached + new Vector2(x - halfX, y - halfY));
+                }
+            }
+            return _fieldPosValidator.GetValidFieldTiles(tilesToCheck);
+            // return _fieldPosValidator.GetValidFieldTiles(new List<Vector2>() { PositionInFront });
         }
     }
 }

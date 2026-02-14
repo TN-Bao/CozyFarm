@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4816915317416897257}
   - component: {fileID: 316733592491091007}
   - component: {fileID: 3316903275921621403}
+  - component: {fileID: 8638687554475531102}
   m_Layer: 8
   m_Name: Weed
   m_TagString: Untagged
@@ -83,6 +84,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <UsableTools>k__BackingField: 01000000
+  _destroyAfterPickup: 1
+  <ItemDatabase>k__BackingField: {fileID: 11400000, guid: 7a6ab5ff8aea47c4f9791ddb15420668, type: 2}
   OnPickup:
     m_PersistentCalls:
       m_Calls:
@@ -113,6 +116,21 @@ MonoBehaviour:
   _audioPrefab: {fileID: 6972948841503088423, guid: 521f6362a8a0d874687edba2103a7e00, type: 3}
   _audioClips:
   - {fileID: 8300000, guid: d64beda8de11d8847a86ae09f4efc619, type: 3}
+--- !u!114 &8638687554475531102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6027756521561400818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5de17aa3d3631f346a0614baba68ef00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDatabaseIndex: 2
+  itemCount: 1
+  itemQuality: -1
 --- !u!1 &7296800157348395865
 GameObject:
   m_ObjectHideFlags: 0

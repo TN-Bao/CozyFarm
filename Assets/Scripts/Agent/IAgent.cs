@@ -1,3 +1,4 @@
+using CozyFarm.DataStorage;
 using CozyFarm.Farming;
 using CozyFarm.Input;
 using CozyFarm.Interaction;
@@ -15,5 +16,6 @@ namespace CozyFarm.Agent
         InteractionDetector InteractionDetector { get; }
         ToolsBag ToolsBag { get; }
         FieldController FieldController { get; }
+        Inventory Inventory { get; }
     }
 }

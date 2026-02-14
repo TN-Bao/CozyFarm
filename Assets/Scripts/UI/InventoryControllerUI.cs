@@ -1,0 +1,85 @@
+using System.Collections.Generic;
+using CozyFarm.DataStorage;
+using CozyFarm.Input;
+using UnityEngine;
+
+namespace CozyFarm.UI
+{
+    [RequireComponent(typeof(InventoryRendererUI))]
+    public class InventoryControllerUI : MonoBehaviour
+    {
+        [SerializeField] private PlayerInputFarm _input;
+        [SerializeField] private GameObject _inventoryCanavas;
+        [SerializeField] private InventoryItemUpdateUI _inventoryItemUpdated;
+        [SerializeField] private ItemDatabaseSO _itemDatabase;
+        [SerializeField] private ItemSelectionUI _itemSelection;
+        [SerializeField] private ItemDescriptionUI _itemDescription;
+
+        private InventoryRendererUI _inventoryRenderer;
+        private Inventory _inventoryTempReference;
+
+        private void Awake() {
+            _inventoryRenderer = GetComponent<InventoryRendererUI>();
+        }
+
+        public void ShowInventory(Inventory inventory)
+        {
+            _inventoryCanavas.SetActive(true);
+            
+            _input.EnableUIActionMap();
+            _input.OnUIExit += ExitInventory;
+            _input.OnUIToggleInventory += ExitInventory;
+
+            _inventoryRenderer.PrepareItemsToShow(inventory.Capacity);
+            _inventoryRenderer.ResetItems();
+
+            _inventoryTempReference = inventory;
+            _inventoryTempReference.OnUpdateInventory += UpdateInventoryItems;
+            _itemSelection.EnableController(_input);
+
+            UpdateInventoryItems(inventory.InventoryContent);
+        }
+
+        private void UpdateInventoryItems(IEnumerable<InventoryItemData> inventoryContent)
+        {
+            _inventoryRenderer.ResetItems();
+            int index = 0;
+            foreach (InventoryItemData item in inventoryContent)
+            {
+                if (item != null)
+                {
+                    _inventoryItemUpdated.UpdateElement(index, _itemDatabase.GetItemData(item.id), item);
+                }
+                index ++;
+            }
+        }
+
+        public void UpdateDescription(int selectedItemIndex)
+        {
+            InventoryItemData item = _inventoryTempReference.GetItemDataAt(selectedItemIndex);
+            ItemDescription descriptionData = item == null ? null :
+                _itemDatabase.GetItemData(item.id);
+
+            if (descriptionData == null)
+            {
+                _itemDescription.ResetDescription();
+            }
+            else
+            {
+                _itemDescription.UpdateDescription(descriptionData.Image, descriptionData.Name,
+                    _itemDatabase.GetItemDescription(item.id));
+            }
+        }
+
+        private void ExitInventory()
+        {
+            _input.EnableDefaultActionMap();
+            _input.OnUIExit -= ExitInventory;
+            _input.OnUIToggleInventory -= ExitInventory;
+
+            _inventoryCanavas.SetActive(false);
+            _inventoryTempReference.OnUpdateInventory -= UpdateInventoryItems;
+            _itemSelection.DisableController(_input);
+        }
+    }
+}

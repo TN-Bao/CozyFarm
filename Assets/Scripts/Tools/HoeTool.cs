@@ -6,13 +6,19 @@ namespace CozyFarm.Tools
 {
     public class HoeTool : Tool
     {
-        public HoeTool(ToolTypes toolType) : base(toolType)
+        public HoeTool(int itemID, string data) : base(itemID, data)
         {
+            this.ToolType = ToolTypes.Hoe;
         }
 
         public override void Equip(IAgent agent)
         {
             agent.FieldDetectorObject.StartChecking(ToolRange);
+        }
+
+        public override bool IsToolStillValid()
+        {
+            return true;
         }
 
         public override void PutAway(IAgent agent)

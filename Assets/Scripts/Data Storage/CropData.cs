@@ -16,6 +16,7 @@ namespace CozyFarm.DataStorage
         [Min(1)] public int WiltThreshold;
         [SerializeField] private Seasons _growthSeason;
         public int GrowthSeasonIndex { get; private set; }
+        [SerializeField] private int _producedCount;
         public int ProducedCount { get; private set; }
         [SerializeField] private List<ToolTypes> _collectionTools;
         public List<ToolTypes> GetCollectTools => new List<ToolTypes>(_collectionTools);

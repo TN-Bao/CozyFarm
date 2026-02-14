@@ -87,6 +87,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodLog Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8638687554475531102, guid: 266af65e97e6cfc47ae69d0dbd262ff4, type: 3}
+      propertyPath: itemDatabaseIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9069123627852471480, guid: 266af65e97e6cfc47ae69d0dbd262ff4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.5

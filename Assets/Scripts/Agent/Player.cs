@@ -6,6 +6,7 @@ using CozyFarm.Interaction;
 using CozyFarm.Tools;
 using CozyFarm.UI;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace CozyFarm.Agent
 {
@@ -34,6 +35,11 @@ namespace CozyFarm.Agent
         }
 
         [SerializeField]
+        private Inventory _inventory;
+        public Inventory Inventory => _inventory;
+        
+
+        [SerializeField]
         private FieldDetector _fieldDetector;
         public FieldDetector FieldDetectorObject
         {
@@ -45,6 +51,7 @@ namespace CozyFarm.Agent
         public AgentAnimation AgentAnim { get => _agentAnim; }
         public InteractionDetector InteractionDetector { get => _interactionDetector; }
         public FieldController FieldController => _fieldController;
+        public UnityEvent<Inventory> OnToggleInventory;
 
 
         private void Start() {
@@ -63,6 +70,7 @@ namespace CozyFarm.Agent
             _agentMover.OnMove += _agentAnim.PlayMovementAnimation;
             _playerInput.OnPerformAction += PerformAction;
             _playerInput.OnSwapTool += SwapTool;
+            _playerInput.OnToggleInventory += ToggleInventory;
 
             ToolsBag.OnToolsBagUpdated += _toolSelectionUI.UpdateUI;
         }
@@ -79,8 +87,14 @@ namespace CozyFarm.Agent
             _agentMover.OnMove -= _agentAnim.PlayMovementAnimation;
             _playerInput.OnPerformAction -= PerformAction;
             _playerInput.OnSwapTool -= SwapTool;
+            _playerInput.OnToggleInventory -= ToggleInventory;
 
             ToolsBag.OnToolsBagUpdated -= _toolSelectionUI.UpdateUI;
+        }
+
+        private void ToggleInventory()
+        {
+            OnToggleInventory?.Invoke(Inventory);
         }
 
         private void SwapTool()

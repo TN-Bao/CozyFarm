@@ -42,7 +42,7 @@ namespace CozyFarm.DataStorage
             if (ToolType == ToolTypes.None && CropTypeIndex == -1)
             {
                 if (Price > 0)
-                    stringBuilder.Append($"Price: {Prefab} $ \n");
+                    stringBuilder.Append($"Price: {Price} $ \n");
 
                 if (Consumable)
                     stringBuilder.Append($"Energy Boost: {EnergyBoost} \n");
