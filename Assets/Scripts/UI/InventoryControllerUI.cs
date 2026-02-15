@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using CozyFarm.DataStorage;
 using CozyFarm.Input;
+using CozyFarm.TimeSystem;
 using UnityEngine;
 
 namespace CozyFarm.UI
@@ -14,6 +15,7 @@ namespace CozyFarm.UI
         [SerializeField] private ItemDatabaseSO _itemDatabase;
         [SerializeField] private ItemSelectionUI _itemSelection;
         [SerializeField] private ItemDescriptionUI _itemDescription;
+        [SerializeField] private PauseTimeControllerSO _pauseTimeController;
 
         private InventoryRendererUI _inventoryRenderer;
         private Inventory _inventoryTempReference;
@@ -38,6 +40,7 @@ namespace CozyFarm.UI
             _itemSelection.EnableController(_input);
 
             UpdateInventoryItems(inventory.InventoryContent);
+            _pauseTimeController.SetTimePause(true);
         }
 
         private void UpdateInventoryItems(IEnumerable<InventoryItemData> inventoryContent)
@@ -73,6 +76,8 @@ namespace CozyFarm.UI
 
         private void ExitInventory()
         {
+            _pauseTimeController.SetTimePause(false);
+
             _input.EnableDefaultActionMap();
             _input.OnUIExit -= ExitInventory;
             _input.OnUIToggleInventory -= ExitInventory;
