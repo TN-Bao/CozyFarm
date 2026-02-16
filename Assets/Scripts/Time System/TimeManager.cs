@@ -12,7 +12,7 @@ namespace CozyFarm.TimeSystem
         [SerializeField] private int _wakeUpHour = 6;
 
         private GameCalendar _calendar;
-        
+
         // 1 second == 10 in-game minutes
         private static int REAL_TO_GAME_TIME_CONVERSION = 1;
 
@@ -20,8 +20,13 @@ namespace CozyFarm.TimeSystem
         {
             if (_calendar == null)
             {
+                Debug.Log("Calendar is NULL!!!");
                 _calendar = new GameCalendar();
                 _calendar.OnSeasonChanged += (seasonIndex) => SendDayUpdateEvent(true);
+                if (_calendar == null)
+                {
+                    Debug.Log("Calendar is NULL - 2!!!");
+                }
 
                 _currentTime = new TimeSpan(_currentTime.Days, _wakeUpHour, 0, 0);
             }

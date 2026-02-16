@@ -33,7 +33,8 @@ namespace CozyFarm.Farming
 
         public override string ToString()
         {
-            return $"ID {this.ID}, Ready {this.Ready}, Dead {this.Dead}, Progress {this.Progress}, Watered {this.Watered}";
+            return $"ID {this.ID}, Ready {this.Ready}, Dead {this.Dead}, Level {this.GrowthLevel}, " +
+                $"Regress {this.Regress}, Progress {this.Progress}, Watered {this.Watered}";
         }
         
         public int GetQuality()

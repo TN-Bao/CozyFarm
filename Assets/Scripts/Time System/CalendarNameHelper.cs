@@ -1,6 +1,6 @@
 using System;
 
-namespace CozyFarm
+namespace CozyFarm.TimeSystem
 {
     public static class CalendarNameHelper
     {

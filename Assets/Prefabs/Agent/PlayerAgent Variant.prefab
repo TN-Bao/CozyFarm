@@ -1085,6 +1085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fieldData: {fileID: 464821324573078636}
   _cropDatabaseSO: {fileID: 11400000, guid: 749f715c5713a4741b465b7953bdbf04, type: 2}
+  _itemDatabase: {fileID: 11400000, guid: 7a6ab5ff8aea47c4f9791ddb15420668, type: 2}
   _audioSource: {fileID: 2105910156965303268}
   _preparedFieldSound: {fileID: 8300000, guid: 2b2322439273bf94ea4c35fb1f6bbb36, type: 3}
   _playSeedSound: {fileID: 8300000, guid: ff1c8427efbc8574f8a3f9f87221e108, type: 3}

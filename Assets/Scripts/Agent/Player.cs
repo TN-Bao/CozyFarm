@@ -30,6 +30,8 @@ namespace CozyFarm.Agent
             {
                 _blocked = value;
                 _agentMover.Stopped = _blocked;
+                if (_blocked)
+                    _agentAnim.PlayMovementAnimation(false);
                 _playerInput.BlockInput(_blocked);
             }
         }

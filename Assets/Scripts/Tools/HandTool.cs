@@ -51,8 +51,8 @@ namespace CozyFarm.Tools
                     agent.AgentAnim.OnAnimationEnd.AddListener(
                         () =>
                         {
-                            item.Interact(agent);
                             agent.Blocked = false;
+                            item.Interact(agent);
                         }
                     );
 
