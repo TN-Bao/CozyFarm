@@ -68,6 +68,7 @@ namespace CozyFarm.Tools
         None,
         Hand,
         Hoe,
-        SeedPlacer
+        SeedPlacer,
+        WateringCan
     }
 }

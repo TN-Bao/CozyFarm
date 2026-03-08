@@ -115,7 +115,22 @@ MonoBehaviour:
     EnergyBoost: 0
     Price: 1
     ToolType: 3
-    ToolRange: {x: 1, y: 1}
+    ToolRange: {x: 0, y: 0}
     ToolAnimator: {fileID: 0}
     CropTypeIndex: 0
+    Prefab: {fileID: 0}
+  - Name: Watering Can
+    ID: 7
+    Image: {fileID: 1771208830, guid: 0c8a50d9f1205f54c95c4fc0499a64bf, type: 3}
+    Description: Allow to water crops
+    CanBeStacked: 0
+    StackQuantity: 1
+    CanThrowAway: 0
+    Consumable: 0
+    EnergyBoost: 0
+    Price: 1
+    ToolType: 4
+    ToolRange: {x: 0, y: 0}
+    ToolAnimator: {fileID: 22100000, guid: ac5747804d4ae3b4593d5c0df49619af, type: 2}
+    CropTypeIndex: -1
     Prefab: {fileID: 0}

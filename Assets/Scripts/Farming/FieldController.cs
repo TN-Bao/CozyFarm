@@ -251,5 +251,25 @@ namespace CozyFarm.Farming
         {
             _fieldData.PrintCropStatus();
         }
+
+        public bool IsThereCropAt(Vector2 pos)
+            => _fieldData.crops.ContainsKey(_fieldRenderer.GetTilemapTilePosition(pos));
+
+        public void WaterCropAt(Vector2 pos)
+        {
+            Vector3Int titlePos = _fieldRenderer.GetTilemapTilePosition(pos);
+            bool result = WaterCropUpdateAt(titlePos);
+
+            if (result == false) return;
+
+            _fieldRenderer.WaterCropAt(titlePos);
+        }
+
+        private bool WaterCropUpdateAt(Vector3Int titlePos)
+        {
+            if (_fieldData.crops.ContainsKey(titlePos) == false) return false;
+            _fieldData.crops[titlePos].Watered = true;
+            return true;
+        }
     }
 }

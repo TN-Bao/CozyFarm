@@ -7,16 +7,17 @@ namespace CozyFarm.Agent
     public class AgentAnimation : MonoBehaviour
     {
         private Animator _animator;
-        [SerializeField] private string
+        [SerializeField]
+        private string
             directionX = "DirectionX",
             directionY = "DirectionY",
             movingBoolFlag = "Moving",
             pickupFlag = "Pickup",
-            swingFlag = "Swing";
+            swingFlag = "Swing", wateringFlag = "Watering";
 
         [SerializeField] private ToolAnimation _toolAnim;
     
-        [HideInInspector] public UnityEvent OnAnimationEnd;
+        [HideInInspector] public UnityEvent OnAnimationEnd, OnAnimationOnce;
         public UnityEvent OnFootStep;
 
         public ToolAnimation ToolAnim { get => _toolAnim; }
@@ -30,6 +31,12 @@ namespace CozyFarm.Agent
         {
             OnAnimationEnd?.Invoke();
             OnAnimationEnd.RemoveAllListeners();
+        }
+
+        public void PlayerActionAnimationOnce()
+        {
+            OnAnimationOnce?.Invoke();
+            OnAnimationOnce.RemoveAllListeners();
         }
 
         public void PlayFootStep() => OnFootStep?.Invoke();
@@ -62,6 +69,11 @@ namespace CozyFarm.Agent
             {
                 _animator.SetTrigger(swingFlag);
             }
+
+            if (animType == AnimationType.Watering)
+            {
+                _animator.SetTrigger(wateringFlag);
+            }
         }
     }
 
@@ -69,6 +81,7 @@ namespace CozyFarm.Agent
     {
         None,
         PickUp,
-        Swing
+        Swing,
+        Watering
     }
 }

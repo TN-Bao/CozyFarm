@@ -92,5 +92,10 @@ namespace CozyFarm.Farming
 
             _cropVisualRepresentation.Remove(position);
         }
+
+        public void WaterCropAt(Vector3Int titlePos)
+        {
+            _preparedFieldTilemap.SetTile(titlePos, _wateredFieldTile);
+        }
     }
 }

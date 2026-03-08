@@ -121,6 +121,10 @@ namespace CozyFarm.Tools
             {
                 count = _toolsBagInventory.GetItemDataAt(_selectedIndex - 1).count;
             }
+            else if (selectedToolDescription.ToolType == ToolTypes.WateringCan)
+            {
+                count = ((WateringTool)CurrentTool).NumberOfUses;
+            }
 
             List<Sprite> sprites = new List<Sprite>();
             foreach (Tool tool in _newBag)
@@ -188,6 +192,16 @@ namespace CozyFarm.Tools
             _newBag[_selectedIndex].OnFinishedAction = null;
             _newBag[_selectedIndex].OnPerformAction = null;
             _newBag[_selectedIndex].OnStartedAction = null;
+        }
+
+        public void RestoreCurrentTool(IAgent agent)
+        {
+            if (CurrentTool.ToolType == ToolTypes.WateringCan)
+            {
+                ((WateringTool)CurrentTool).Refill();
+            }
+
+            UpdateInventoryData(agent);
         }
     }
 }
